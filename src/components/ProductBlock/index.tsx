@@ -1,18 +1,12 @@
 import React from "react";
 import classNames from "classnames";
 
-import "./ProductBlock.scss";
-import imageProduct from "../../assets/img/cat-photo.png";
+import { IProductProps } from "../../interfaces";
 
-export interface IProductProps {
-  name: string;
-  type: string;
-  sizeDescription: string;
-  count: number;
-  size: string;
-  nameFirm: string;
-  description: string;
-}
+import ProductDescriptionBlock from "../ProductDescriptionBlock";
+
+import imageProduct from "../../assets/img/cat-photo.png";
+import "./ProductBlock.scss";
 
 const ProductBlock: React.FC<IProductProps> = ({
   name,
@@ -27,7 +21,7 @@ const ProductBlock: React.FC<IProductProps> = ({
 
   const [activeItem, setActiveItem] = React.useState<boolean>(false);
 
-  const handleClickItem = (e: React.MouseEvent<HTMLDivElement>): void => {
+  const handleClickItem = (e: React.MouseEvent<HTMLElement>): void => {
     if (!e.currentTarget.classList.contains("disabled")) {
       setActiveItem(!activeItem);
     }
@@ -51,19 +45,23 @@ const ProductBlock: React.FC<IProductProps> = ({
         <p className="productItem__desc">
           {productDesc[0]} <br />
           {productDesc[1]} <br />
-          {+size >= 5 ? "заказчик доволен" : ""}
+          {+size >= 5 && "заказчик доволен"}
         </p>
         <figure className="productItem__imageWrapper">
-          <img src={imageProduct} alt="Product Image" />
+          <img src={imageProduct} alt="Product" />
         </figure>
         <div className="productItem__size">
           {size}
           <span>кг</span>
         </div>
       </div>
-      <div className="actionDescription">
-        <p>{count ? description : "Печалька с курой закончились"}</p>
-      </div>
+      <ProductDescriptionBlock
+        description={description}
+        count={count}
+        type={type}
+        onClickByOrder={handleClickItem}
+        activeItem={activeItem}
+      />
     </article>
   );
 };

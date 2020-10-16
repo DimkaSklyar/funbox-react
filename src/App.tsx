@@ -1,21 +1,11 @@
 import React from "react";
 
-import "./App.scss";
+import { IProduct, IProductList } from "./interfaces";
+
 import ProductBlock from "./components/ProductBlock";
 
+import "./App.scss";
 import DB from "./assets/db.json";
-
-export interface IProduct {
-  id: string;
-  name: string;
-  type: string;
-  sizeDescription: string;
-  count: number;
-  size: string;
-  description: string;
-}
-
-interface IProductList extends Array<IProduct> {};
 
 function App() {
   const [productsList, setProductsList] = React.useState<IProductList | null>(

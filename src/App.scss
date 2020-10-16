@@ -6,15 +6,24 @@
       rgba(0, 0, 0, 0.5) 100%
     ),
     url("./assets/img/pattern.jpg");
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  min-width: 510px;
   .container {
     width: 1120px;
     margin: 0 auto;
     align-items: center;
+    @media only screen and (min-width: 928px) and (max-width: 1140px) {
+      width: 960px;
+    }
+    @media only screen and (min-width: 769px) and (max-width: 927px) {
+      width: 720px;
+    }
+    @media only screen and (max-width: 768px) {
+      width: 510px;
+    }
   }
 
   h1 {
@@ -28,6 +37,9 @@
   .productList {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    @media only screen and (min-width: 768px) and (max-width: 1140px) {
+      justify-content: center;
+    }
   }
 }
-
