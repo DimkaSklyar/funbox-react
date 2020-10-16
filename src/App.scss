@@ -1,0 +1,33 @@
+.app {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 5e-5) 49.88%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("./assets/img/pattern.jpg");
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .container {
+    width: 1120px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 100;
+    margin-bottom: 18px;
+    font-family: "Exo 2", sans-serif;
+  }
+
+  .productList {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
