@@ -1,20 +1,31 @@
 .app {
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 5e-5) 49.88%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
-    url("./assets/img/pattern.jpg");
+  background: url("./assets/img/pattern.jpg");
+  height: 100vh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 510px;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 5e-5) 49.88%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
   .container {
     width: 1120px;
     margin: 0 auto;
     align-items: center;
+    z-index: 0;
     @media only screen and (min-width: 928px) and (max-width: 1140px) {
       width: 960px;
     }
