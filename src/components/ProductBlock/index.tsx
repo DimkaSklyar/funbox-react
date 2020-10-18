@@ -62,7 +62,6 @@ const ProductBlock: React.FC<IProductProps> = ({
         onClickByOrder={handleClickItem}
         activeItem={activeItem}
       />
-      <div className="decor"></div>
     </article>
   );
 };
